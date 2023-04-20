@@ -34,7 +34,7 @@ export default function HomeView() {
             : 
             <Text>This is a male</Text>
             }
-            <Image source={require('../assets/pikachu.png')} style={styles.imagePokemon} />
+            <Image source={require('../../../assets/pikachu.png')} style={styles.imagePokemon} />
         </View>
     );
 }
