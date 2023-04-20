@@ -27,17 +27,24 @@ export default function HomeView() {
 
     return (
         <View>
+            <PokemonInfo name={'Raichu'} level={level} isMale={isMale}/>
+        </View>
+    );
+}
+
+const PokemonInfo = (props: any) => {
+    <View>
             <Text>This is a Pokemon</Text>
-            <Text>His name is {name}, his level is {level}.</Text>
-            {isMale ?
+            <Text>His name is {props.name}, his level is {props.level}.</Text>
+            {props.isMale ?
             <Text>This is a male</Text> 
             : 
             <Text>This is a male</Text>
             }
             <Image source={require('../../../assets/pikachu.png')} style={styles.imagePokemon} />
         </View>
-    );
 }
+
 
 const styles = StyleSheet.create({
     imagePokemon: {
