@@ -19,9 +19,20 @@ import {
 declare const global: {HermesInternal: null | {}};
 
 export default function HomeView() {
+
+    const name: string = 'Pikachu';
+    const level: number = 15;
+    const isMale: boolean = true;
+
     return (
         <View>
-            <Text>Hello World !</Text>
+            <Text>This is a Pokemon</Text>
+            <Text>His name is {name}, his level is {level}.</Text>
+            {isMale ?
+            <Text>This is a male</Text> 
+            : 
+            <Text>This is a male</Text>
+            }
         </View>
     );
 }
