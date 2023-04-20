@@ -6,6 +6,7 @@ import {
     View,
     Text,
     StatusBar,
+    Image,
 } from 'react-native';
 
 import {
@@ -33,6 +34,14 @@ export default function HomeView() {
             : 
             <Text>This is a male</Text>
             }
+            <Image source={require('./assets/pikachu.png')} style={styles.imagePokemon} />
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    imagePokemon: {
+        width: 100,
+        height: 100,
+    }
+});
