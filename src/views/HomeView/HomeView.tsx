@@ -27,8 +27,8 @@ export default function HomeView() {
 
     return (
         <View>
-            <PokemonInfo name={name} level={level} isMale={isMale} source={require('../../../assets/images/pikachu.png')}/>
-            <PokemonInfo name={'Dracofeu'} level={57} isMale={true} source={require('../../../assets/images/dracofeu.png')}/>
+            <PokemonInfo name={name} level={level} isMale={isMale} src={require('../../../assets/images/pikachu.png')}/>
+            <PokemonInfo name={'Dracofeu'} level={57} isMale={true} src={require('../../../assets/images/dracofeu.png')}/>
         </View>
     );
 };
