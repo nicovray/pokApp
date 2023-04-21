@@ -21,12 +21,14 @@ export default function HomeView() {
             setCounterPokedex(0);
         } else {
             setCounterPokedex(counterPokedex + 1);
+        };
     };
     const onPressPrevious = () => {
         if (counterPokedex === 0) {
             setCounterPokedex(PokemonList.length - 1);
         } else {
         setCounterPokedex(counterPokedex - 1);
+        };
     };
     
     return (
