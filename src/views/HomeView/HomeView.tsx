@@ -13,12 +13,6 @@ import { Pokemon } from '../../models/Pokemon';
 import { PokemonList } from '../../data/PokemonList';
 
 export default function HomeView() {
-
-    const name: string = 'Pikachu';
-    const height: number = 0.4;
-    const type: string = 'electric';
-    const isMale: boolean = true;
-
     return (
         <View>
             <FlatList
@@ -26,7 +20,7 @@ export default function HomeView() {
             keyExtractor={item => item.id.toString()}
             renderItem={({item}) => 
             <PokemonInfo id={item.id} name={item.name} height={item.height} type={item.type} isMale={item.isMale} src={item.src} />
-    }
+            }
             />
         </View>
     );
