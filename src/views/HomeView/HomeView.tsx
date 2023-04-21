@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     SafeAreaView,
     StyleSheet,
@@ -8,19 +8,39 @@ import {
     StatusBar,
     Image,
     FlatList,
+    Button,
 } from 'react-native';
 import { Pokemon } from '../../models/Pokemon';
 import { PokemonList } from '../../data/PokemonList';
 
 export default function HomeView() {
+    const [counterPokedex, setCounterPokedex] = useState(0);
+
+    const onPressNext = () => {
+        setCounterPokedex(counterPokedex + 1);
+    };
+    const onPressPrevious = () => {
+        setCounterPokedex(counterPokedex - 1);
+    };
+    
     return (
         <View>
-            <FlatList
-            data={PokemonList}
-            keyExtractor={item => item.id.toString()}
-            renderItem={({item}) => 
-            <PokemonInfo id={item.id} name={item.name} height={item.height} type={item.type} isMale={item.isMale} src={item.src} />
-            }
+            <Text>Counter: {counterPokedex}</Text>
+            <Button
+                title="Previous"
+                onPress={onPressPrevious}
+            />
+            <Button
+                title="Next"
+                onPress={onPressNext}
+            />
+            <PokemonInfo 
+                id={PokemonList[counterPokedex].id} 
+                name={PokemonList[counterPokedex].name} 
+                height={PokemonList[counterPokedex].height} 
+                type={PokemonList[counterPokedex].type} 
+                isMale={PokemonList[counterPokedex].isMale} 
+                src={PokemonList[counterPokedex].src}
             />
         </View>
     );
