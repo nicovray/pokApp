@@ -17,9 +17,15 @@ export default function HomeView() {
     const [counterPokedex, setCounterPokedex] = useState(0);
 
     const onPressNext = () => {
-        setCounterPokedex(counterPokedex + 1);
+        if (counterPokedex === PokemonList.length - 1) {
+            setCounterPokedex(0);
+        } else {
+            setCounterPokedex(counterPokedex + 1);
     };
     const onPressPrevious = () => {
+        if (counterPokedex === 0) {
+            setCounterPokedex(PokemonList.length - 1);
+        } else {
         setCounterPokedex(counterPokedex - 1);
     };
     
