@@ -45,7 +45,7 @@ export default function HomeView() {
         return (
         <View>
             <Text>This is a Pokemon</Text>
-                <Text>His name is {name}, his level is {level}.</Text>
+                <Text>Its name is {name}, its level is {level}.</Text>
                 {isMale ?
                 <Text>This is a male</Text> 
                 : 
@@ -58,7 +58,7 @@ export default function HomeView() {
 
 const styles = StyleSheet.create({
     imagePokemon: {
-        width: 100,
-        height: 100,
+        width: 200,
+        height: 200,
     }
 });
