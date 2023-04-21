@@ -27,22 +27,31 @@ export default function HomeView() {
 
     return (
         <View>
-            <PokemonInfo name={'Raichu'} level={level} isMale={isMale}/>
+            <PokemonInfo name={name} level={level} isMale={isMale} source={require('../../../assets/images/pikachu.png')}/>
+            <PokemonInfo name={'Dracofeu'} level={57} isMale={true} source={require('../../../assets/images/dracofeu.png')}/>
         </View>
     );
 };
 
-    const PokemonInfo = (props: any) => {
+
+    type PokemonInfoType = {
+        name: string,
+        level: number,
+        isMale: boolean,
+        src: any,
+    };
+
+    const PokemonInfo = ({name, level, isMale, src}: PokemonInfoType) => {
         return (
         <View>
             <Text>This is a Pokemon</Text>
-                <Text>His name is {props.name}, his level is {props.level}.</Text>
-                {props.isMale ?
+                <Text>His name is {name}, his level is {level}.</Text>
+                {isMale ?
                 <Text>This is a male</Text> 
                 : 
                 <Text>This is a male</Text>
                 }
-                <Image source={require('../../../assets/pikachu.png')} style={styles.imagePokemon} />
+                <Image source={src} style={styles.imagePokemon} />
         </View>
         )
     };
