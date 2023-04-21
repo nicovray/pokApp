@@ -7,45 +7,36 @@ import {
     Text,
     StatusBar,
     Image,
+    FlatList,
 } from 'react-native';
-
-import {
-    Header,
-    LearnMoreLinks,
-    Colors,
-    DebugInstructions,
-    ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-declare const global: {HermesInternal: null | {}};
+import { Pokemon } from '../../models/Pokemon';
+import { PokemonList } from '../../data/PokemonList';
 
 export default function HomeView() {
 
     const name: string = 'Pikachu';
-    const level: number = 15;
+    const height: number = 0.4;
+    const type: string = 'electric';
     const isMale: boolean = true;
 
     return (
         <View>
-            <PokemonInfo name={name} level={level} isMale={isMale} src={require('../../../assets/images/pikachu.png')}/>
-            <PokemonInfo name={'Dracofeu'} level={57} isMale={true} src={require('../../../assets/images/dracofeu.png')}/>
+            <FlatList
+            data={PokemonList}
+            keyExtractor={item => item.id.toString()}
+            renderItem={({item}) => 
+            <PokemonInfo id={item.id} name={item.name} height={item.height} type={item.type} isMale={item.isMale} src={item.src} />
+    }
+            />
         </View>
     );
 };
 
-
-    type PokemonInfoType = {
-        name: string,
-        level: number,
-        isMale: boolean,
-        src: any,
-    };
-
-    const PokemonInfo = ({name, level, isMale, src}: PokemonInfoType) => {
+    const PokemonInfo = ({name, height, type, isMale, src}: Pokemon) => {
         return (
         <View>
             <Text>This is a Pokemon</Text>
-                <Text>Its name is {name}, its level is {level}.</Text>
+                <Text>Its name is {name}, its height is {height} and its type is {type}.</Text>
                 {isMale ?
                 <Text>This is a male</Text> 
                 : 
@@ -60,5 +51,6 @@ const styles = StyleSheet.create({
     imagePokemon: {
         width: 200,
         height: 200,
+        marginBottom: 50,
     }
 });
